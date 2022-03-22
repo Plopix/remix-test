@@ -19,7 +19,7 @@ type NewPost = {
     markdown: string;
   };
 
-const postsPath = path.join(__dirname, "..", "data/posts");
+const postsPath = path.join(__dirname, "data/posts");
 
 function isValidPostAttributes(
     attributes: any
@@ -29,6 +29,9 @@ function isValidPostAttributes(
 
 export async function getPosts() {
     // await new Promise((res) => setTimeout(res, 2000));
+
+    return [];
+
     const dir = await fs.readdir(postsPath);
     return Promise.all(
         dir.map(async (filename) => {
